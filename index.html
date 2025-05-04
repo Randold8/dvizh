@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style-eventlist.css" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script> 
     <link
       href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap"
       rel="stylesheet"
@@ -71,38 +74,38 @@
       </div>
     </section>
 
-    <section class="today-section"></section>
+    <section class="list-section">
+        <div class="list-container">
+          <h2 class="section-heading">Афиша</h2>
+      
+          <div class="filter-container">
+            <div class="filter-scroll">
+              <button class="filter-btn active" data-filter="all">Все события</button>
+              <button class="filter-btn" data-filter="lecture">Лекции</button>
+              <button class="filter-btn" data-filter="exhibition">Выставки</button>
+              <button class="filter-btn" data-filter="conference">Конференции</button>
+              <button class="filter-btn" data-filter="quiz">Квизы</button>
+              <button class="filter-btn" data-filter="other">Другое</button>
+            </div>
+          </div>
+      
+          <div class="events-list-container">
+            <div class="events-list">
+              <!-- Events will be dynamically inserted here -->
+            </div>
+            <div class="events-navigation desktop-only">
+                <button class="nav-arrow nav-prev">←</button>
+                <button class="nav-arrow nav-next">→</button>
+              </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const today = new Date();
-        const day = today.getDate();
-        const month = today.getMonth() + 1; // JavaScript months are 0-indexed
-
-        // Set the date numbers
-        const dayElement = document.getElementById("day-number");
-        const monthElement = document.getElementById("month-number");
-
-        dayElement.textContent = day;
-        monthElement.textContent = month;
-
-        // Adjust font size based on the combined length of day and month digits
-        const totalDigits = day.toString().length + month.toString().length;
-
-        if (totalDigits > 3) {
-          // For dates like 10.10, 12.12, etc.
-          dayElement.style.fontSize = "120px";
-          monthElement.style.fontSize = "80px";
-
-          // Adjust divider width for balance
-          document.querySelector(".date-divider hr").style.width = "60px";
-        } else if (totalDigits > 2) {
-          // For dates like 5.10 or 10.5
-          dayElement.style.fontSize = "135px";
-          monthElement.style.fontSize = "90px";
-        }
-        // Default sizes are already set in CSS for short dates like 5.5
-      });
-    </script>
+    <script src="/date.js"></script>
+    <script src="/filter.js"></script>
+    <script src="/eventlist.js"></script>
   </body>
 </html>

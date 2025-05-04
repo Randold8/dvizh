@@ -167,7 +167,7 @@ body {
         justify-content: center;
         padding: 10px 20px;
     }
-    
+
     .date-container {
         display: flex;
         align-items: baseline;
@@ -175,14 +175,14 @@ body {
         margin-right: 20px;
         margin-top:-30px;
     }
-    
+
     .day-number {
         font-size: 150px;
         font-family: 'Jura', sans-serif;
         line-height: 1;
         color: white;
     }
-    
+
     .date-divider hr {
         width: 80px;
         border: none;
@@ -192,13 +192,13 @@ body {
         display: inline-block;
         vertical-align: baseline;
     }
-    
+
     .month-number {
         font-size: 100px;
         font-family: 'Jura', sans-serif;
         color: white;
     }
-    
+
     .events-link {
         color: white;
         text-decoration: none;
@@ -210,7 +210,7 @@ body {
         transition: color 0.2s;
         margin-left:4vw;
     }
-    
+
     .events-link::after {
         content: "→";
         position: absolute;
@@ -219,13 +219,13 @@ body {
         bottom: 0;
         font-size: 30px;
     }
-    
-    
+
+
     .events-link:hover::after {
         transform: translateX(-10%) scaleX(3.1); /* Small animation on hover */
         transition: transform 0.2s ease;
     }
-    
+
     /* Standalone shadow divider that can be reused */
     .shadow-divider {
         width: 100vw;
@@ -237,7 +237,7 @@ body {
         position: relative;
         top:-20vh;
     }
-    
+
 
 }
 
