@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="header-top">
+          <div class="logo-section">
+            <div class="header-logo">
+              <p class="logotext">hse.движ</p>
+            </div>
+            <div class="header-divider"></div>
+          </div>
+          <div class="login-section">
+            <button class="login-btn">Войти</button>
+          </div>
+        </div>
+        <div class="header-links">
+          <a href="#" class="header-link">Афиша</a>
+          <a href="#" class="header-link">Календарь</a>
+          <a href="#" class="header-link">Достижения</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="events-section">
+      <div class="events-container">
+        <a href="#" class="event event-main">
+          <img src="/img/event1.png" alt="Main Event" />
+        </a>
+
+        <div class="event-secondary-container">
+          <a href="#" class="event event-secondary">
+            <img src="/img/event2.png" alt="Secondary Event" />
+          </a>
+          <a href="#" class="arrow-link right-arrow">
+            <span class="arrow">→</span>
+          </a>
+        </div>
+
+        <div class="event-secondary-container reverse">
+          <a href="#" class="event event-secondary">
+            <img src="/img/event3.png" alt="Secondary Event" />
+          </a>
+          <a href="#" class="arrow-link left-arrow">
+            <span class="arrow">←</span>
+          </a>
+        </div>
+
+        <div class="date-display">
+          <div class="date-container">
+            <div id="day-number" class="day-number"></div>
+            <div class="date-divider"><hr /></div>
+            <div id="month-number" class="month-number"></div>
+          </div>
+          <a href="#" class="events-link">все события</a>
+        </div>
+
+        <div class="shadow-divider"></div>
+      </div>
+    </section>
+
+    <section class="today-section"></section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const today = new Date();
+        const day = today.getDate();
+        const month = today.getMonth() + 1; // JavaScript months are 0-indexed
+
+        // Set the date numbers
+        const dayElement = document.getElementById("day-number");
+        const monthElement = document.getElementById("month-number");
+
+        dayElement.textContent = day;
+        monthElement.textContent = month;
+
+        // Adjust font size based on the combined length of day and month digits
+        const totalDigits = day.toString().length + month.toString().length;
+
+        if (totalDigits > 3) {
+          // For dates like 10.10, 12.12, etc.
+          dayElement.style.fontSize = "120px";
+          monthElement.style.fontSize = "80px";
+
+          // Adjust divider width for balance
+          document.querySelector(".date-divider hr").style.width = "60px";
+        } else if (totalDigits > 2) {
+          // For dates like 5.10 or 10.5
+          dayElement.style.fontSize = "135px";
+          monthElement.style.fontSize = "90px";
+        }
+        // Default sizes are already set in CSS for short dates like 5.5
+      });
+    </script>
+  </body>
+</html>
