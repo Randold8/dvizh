@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (animate) {
           gsap.to(eventsList, {
             x: -currentPosition * cardWidth,
-            duration: 0.5,
+            duration: 1,
             ease: "circ.out",
           });
         } else {
