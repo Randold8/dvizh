@@ -10,12 +10,6 @@
   margin: 0 auto;
 }
 
-.section-heading {
-  font-family: "Jura", sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-}
-
 .filter-container {
   position: relative;
   margin-bottom: 40px;
@@ -274,3 +268,10 @@
     display: none;
   }
 }
+.event-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+

@@ -10,6 +10,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script> 
+    <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js "></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap"
       rel="stylesheet"
@@ -30,9 +31,9 @@
           </div>
         </div>
         <div class="header-links">
-          <a href="#" class="header-link">Афиша</a>
-          <a href="#" class="header-link">Календарь</a>
-          <a href="#" class="header-link">Достижения</a>
+          <a href="" id="afishaBtn" class="header-link">Афиша</a>
+          <a href="" id="calendarBtn" class="header-link">Календарь</a>
+          <a href="" id="achievementsBtn" class="header-link">Достижения</a>
         </div>
       </div>
     </header>
@@ -100,12 +101,23 @@
           </div>
         </div>
       </section>
+      <section id="calendar-section" class="calendar-section">
+        <div class="list-container">
+          <h2 class="section-heading">Календарь событий</h2>
+          <img src="/img/calendarsticker.png" class="calendar-sticker"></img>
+          <div id="calendar"></div>
+          <button class="create-event-btn">Создать своё мероприятие</button>
+          <img src="/img/calendarsticker.png" class="calendar-sticker2"></img>
+          
+        </div>
+      </section>
       
-      
-      
-
+      <script src="/eventsProvider.js"></script>
+      <script src="/mainevents.js"></script>
     <script src="/date.js"></script>
     <script src="/filter.js"></script>
     <script src="/eventlist.js"></script>
+    <script src="/calendar.js"></script>
+    <script src="/scroll-links.js"></script>
   </body>
 </html>

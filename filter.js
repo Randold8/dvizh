@@ -1,25 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Make the Афиша button scroll down to the list section
-    const afishaLink = document.querySelector('.header-link');
-    const listSection = document.querySelector('.list-section');
-  
-    if (afishaLink && listSection) {
-      afishaLink.addEventListener('click', function(e) {
-        e.preventDefault();
-  
-        // Using GSAP for smooth scrolling animation
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: {
-            y: listSection,
-            offsetY: 20
-          },
-          ease: "power3.inOut"
-        });
-      });
-    }
-  
-    // 2. Filter button selection logic
     const filterButtons = document.querySelectorAll('.filter-btn');
   
     filterButtons.forEach(button => {

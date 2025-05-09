@@ -1,228 +1,127 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Sample event data - in a real app, this would likely come from an API
-  const eventData = [
-    {
-      id: 1,
-      title: "Инклюзивная тактильная выставка ”Прикоснись к истории Победы”",
-      date: "15.11",
-      image: "/img/event1.png",
-      time: "18:00",
-      location: "Аудитория 505",
-      type: "lecture",
-    },
-    {
-      id: 2,
-      title: "Выставка народного творчества “К истокам РУССКОЙ культуры”",
-      date: "20.11",
-      image: "/img/event2.png",
-      time: "10:00",
-      location: "Главный холл",
-      type: "exhibition",
-    },
-    {
-      id: 3,
-      title: "расширенное заседание коллегии Федеральной антимонопольной службы, посвященное 35-летию со дня создания ведомства",
-      date: "25.11",
-      image: "/img/event3.png",
-      time: "09:30",
-      location: "Конференц-зал 2",
-      type: "conference",
-    },
-    {
-      id: 4,
-      title: "Квиз по истории России",
-      date: "03.12",
-      image: "/img/event1.png", // Reusing images for demo
-      time: "16:00",
-      location: "Аудитория 301",
-      type: "quiz",
-    },
-    {
-      id: 5,
-      title: "Дебаты на тему искусственного интеллекта",
-      date: "10.12",
-      image: "/img/event2.png",
-      time: "15:30",
-      location: "Аудитория 405",
-      type: "other",
-    },
-    {
-      id: 6,
-      title: "Мастер-класс по программированию",
-      date: "15.12",
-      image: "/img/event3.png",
-      time: "14:00",
-      location: "Компьютерный класс 3",
-      type: "lecture",
-    },
-    {
-      id: 7,
-      title: "Художественная выставка 'Цифровая эра'",
-      date: "18.12",
-      image: "/img/event1.png",
-      time: "12:00",
-      location: "Галерея HSE",
-      type: "exhibition",
-    },
-    {
-      id: 8,
-      title: "Конференция по устойчивому развитию",
-      date: "22.12",
-      image: "/img/event2.png",
-      time: "10:00",
-      location: "Большой зал",
-      type: "conference",
-    },
-  ];
+// Utility: Convert "dd.mm" to "YYYY-MM-DD" ISO string (like FullCalendar)
+function parseEventDateString(dateString) {
+  const [day, month] = dateString.split('.').map(Number);
+  const now = new Date();
+  const year = now.getFullYear();
+  let eventDate = new Date(year, month - 1, day);
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  if (eventDate < today) eventDate = new Date(year + 1, month - 1, day);
+  return eventDate.toISOString().split('T')[0];
+}
 
-  // DOM elements
+// Select up to `limit` future events, or if none, up to `limit` past events
+function getNearestEvents(events, limit = 10) {
+  const todayStr = new Date().toISOString().split('T')[0];
+  const annotated = events.map(ev => ({
+    ...ev,
+    _eventDateStr: parseEventDateString(ev.date)
+  }));
+
+  const futureEvents = annotated
+    .filter(ev => ev._eventDateStr >= todayStr)
+    .sort((a, b) => a._eventDateStr.localeCompare(b._eventDateStr));
+
+  if (futureEvents.length > 0) return futureEvents.slice(0, limit);
+
+  const pastEvents = annotated
+    .filter(ev => ev._eventDateStr < todayStr)
+    .sort((a, b) => b._eventDateStr.localeCompare(a._eventDateStr));
+  return pastEvents.slice(0, limit);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
   const eventsList = document.querySelector(".events-list");
   const prevButton = document.querySelector(".nav-prev");
   const nextButton = document.querySelector(".nav-next");
   const filterButtons = document.querySelectorAll(".filter-btn");
 
-  // Variables for navigation
-  let currentPosition = 0;
-  let eventsPerScreen = 3;
-  let cardWidth = 0;
-  let maxPosition = 0;
+  let nearestEvents = [];
+  let currentPosition = 0, eventsPerScreen = 3, cardWidth = 0, maxPosition = 0;
 
-  // Create event cards
-  function createEventCards() {
+  function createEventCards(events) {
     eventsList.innerHTML = "";
-
-    eventData.forEach((event) => {
+    events.forEach(event => {
       const card = document.createElement("div");
       card.className = "event-card";
       card.dataset.type = event.type;
 
       card.innerHTML = `
-          <div class="event-img-container">
-            <img src="${event.image}" alt="${event.title}" class="event-img">
-            <div class="event-date">${event.date}</div>
-          </div>
-          <div class="event-details">
-            <h3 class="event-title">${event.title}</h3>
-            <div class="event-info">
-              <div class="event-time">
-                <svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                ${event.time}
-              </div>
-              <div class="event-location">
-                <svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                ${event.location}
-              </div>
-            </div>
-          </div>
-        `;
+  <a href="/${event.id}" class="event-link">
+    <div class="event-img-container">
+      <img src="${event.image}" alt="${event.title}" class="event-img">
+      <div class="event-date">${event.date}</div>
+    </div>
+    <div class="event-details">
+      <h3 class="event-title">${event.title}</h3>
+      <div class="event-info">
+        <div class="event-time">
+          <svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          ${event.time}
+        </div>
+        <div class="event-location">
+          <svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          ${event.location}
+        </div>
+      </div>
+    </div>
+  </a>
+`;
 
       eventsList.appendChild(card);
     });
-
     updateLayout();
   }
 
-  // Update layout based on device size
+  function filterEvents(type) {
+    let filtered = (type === "all")
+      ? nearestEvents
+      : nearestEvents.filter(ev => ev.type === type);
+
+    createEventCards(filtered);
+    currentPosition = 0;
+    gsap.set(eventsList, {x: 0});
+    updateNavButtons();
+  }
+
   function updateLayout(animate = true) {
     const isMobile = window.innerWidth < 768;
-
     if (!isMobile) {
-      // Desktop: Calculate card width and maximum scroll position
-      const visibleCards = document.querySelectorAll(
-        ".event-card:not(.hidden)"
-      );
+      const visibleCards = document.querySelectorAll(".event-card:not(.hidden)");
       if (visibleCards.length > 0) {
-        cardWidth = visibleCards[0].offsetWidth + 20; // width + margin
+        cardWidth = visibleCards[0].offsetWidth + 20;
         eventsPerScreen = 3;
         maxPosition = Math.max(0, visibleCards.length - eventsPerScreen);
-
-        // Reset position if we're beyond the max after filtering
-        if (currentPosition > maxPosition) {
-          currentPosition = maxPosition;
-        }
-
-        // Update scroll position with or without animation
+        if (currentPosition > maxPosition) currentPosition = maxPosition;
         if (animate) {
           gsap.to(eventsList, {
             x: -currentPosition * cardWidth,
             duration: 1,
-            ease: "circ.out",
+            ease: "circ.out"
           });
         } else {
           gsap.set(eventsList, { x: -currentPosition * cardWidth });
         }
-
-        // Update navigation buttons
         updateNavButtons();
       }
     } else {
-      // Mobile: Reset any transforms
       gsap.set(eventsList, { x: 0 });
       currentPosition = 0;
     }
   }
 
-// Filter events - completely rewritten to avoid any animations
-function filterEvents(type) {
-    // First, hide all cards (for an instant effect)
-    const allCards = document.querySelectorAll('.event-card');
-    allCards.forEach(card => {
-      if (type === 'all' || card.dataset.type === type) {
-        card.classList.remove('hidden');
-        card.style.display = ''; // Use default display
-      } else {
-        card.classList.add('hidden');
-        card.style.display = 'none'; // Completely hide the element
-      }
-    });
-  
-    // Reset position without any animation
-    currentPosition = 0;
-  
-    // Directly set the position without animation
-    gsap.set(eventsList, { x: 0 });
-  
-    // Recalculate layout values
-    const visibleCards = document.querySelectorAll('.event-card:not(.hidden)');
-    if (visibleCards.length > 0) {
-      cardWidth = visibleCards[0].offsetWidth + 20;
-      eventsPerScreen = 3;
-      maxPosition = Math.max(0, visibleCards.length - eventsPerScreen);
-    } else {
-      maxPosition = 0;
-    }
-  
-    // Update navigation buttons
-    updateNavButtons();
-  }
-  
-  
-
-  // Update navigation button states
   function updateNavButtons() {
     prevButton.disabled = currentPosition <= 0;
     nextButton.disabled = currentPosition >= maxPosition;
-
-    if (prevButton.disabled) {
-      prevButton.classList.add("disabled");
-    } else {
-      prevButton.classList.remove("disabled");
-    }
-
-    if (nextButton.disabled) {
-      nextButton.classList.add("disabled");
-    } else {
-      nextButton.classList.remove("disabled");
-    }
+    prevButton.classList.toggle("disabled", prevButton.disabled);
+    nextButton.classList.toggle("disabled", nextButton.disabled);
   }
 
-  // Event listeners for navigation buttons
   if (prevButton) {
     prevButton.addEventListener("click", () => {
       if (currentPosition > 0) {
@@ -230,10 +129,9 @@ function filterEvents(type) {
         gsap.to(eventsList, {
           x: -currentPosition * cardWidth,
           duration: 0.5,
-          ease: "circ.out", // Changed to circ.out
+          ease: "circ.out"
         });
         updateNavButtons();
-        // Arrow pressing animation removed
       }
     });
   }
@@ -245,15 +143,13 @@ function filterEvents(type) {
         gsap.to(eventsList, {
           x: -currentPosition * cardWidth,
           duration: 0.5,
-          ease: "circ.out", // Changed to circ.out
+          ease: "circ.out"
         });
         updateNavButtons();
-        // Arrow pressing animation removed
       }
     });
   }
 
-  // Event listeners for filter buttons
   filterButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const filterType = this.getAttribute("data-filter");
@@ -261,18 +157,23 @@ function filterEvents(type) {
     });
   });
 
-  // Handle window resize
   let resizeTimer;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      updateLayout(true); // Animate on resize
+      updateLayout(true);
     }, 250);
   });
 
-  // Initialize
-  createEventCards();
+  // MAIN: use EventsProvider (same as calendar)
+  window.EventsProvider.getEvents()
+    .then(events => {
+      nearestEvents = getNearestEvents(events, 10);
+      filterEvents("all");
+    })
+    .catch(err => {
+      eventsList.innerHTML = '<p style="color:red;">Could not load events</p>';
+      console.error("Event list loading failed:", err);
+    });
 
-  // Initial filter (show all events)
-  filterEvents("all");
 });
