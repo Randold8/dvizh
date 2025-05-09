@@ -25,7 +25,7 @@ function parseEventDate(dateString) {
         id: ev.id,
         title: typeDef.name,
         start: parseEventDate(ev.date),
-        url: "/" + ev.id, // Placeholder; customize as needed
+        url: "/events/" + ev.id, // Placeholder; customize as needed
         color: typeDef.color
       };
     });

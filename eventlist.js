@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       card.dataset.type = event.type;
 
       card.innerHTML = `
-  <a href="/${event.id}" class="event-link">
+  <a href="/events/${event.id}" class="event-link">
     <div class="event-img-container">
       <img src="${event.image}" alt="${event.title}" class="event-img">
       <div class="event-date">${event.date}</div>

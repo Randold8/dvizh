@@ -46,7 +46,7 @@ function parseEventDate(dateString) {
   
     // Main event (center slot)
     if (mainEvents[0] && mainEventAnchor) {
-      mainEventAnchor.href = "/" + mainEvents[0].id; // <-- CHANGED
+      mainEventAnchor.href = "/events/" + mainEvents[0].id; // <-- CHANGED
       const img = mainEventAnchor.querySelector('img');
       if (img) {
         img.src = mainEvents[0].image;
@@ -57,7 +57,7 @@ function parseEventDate(dateString) {
     if (mainEvents[1] && rightContainer) {
       const secAnchor = rightContainer.querySelector('.event-secondary');
       if (secAnchor) {
-        secAnchor.href = "/" + mainEvents[1].id; // <-- CHANGED
+        secAnchor.href = "/events/" + mainEvents[1].id; // <-- CHANGED
         const img = secAnchor.querySelector('img');
         if (img) {
           img.src = mainEvents[1].image;
@@ -69,7 +69,7 @@ function parseEventDate(dateString) {
     if (mainEvents[2] && leftContainer) {
       const secAnchor = leftContainer.querySelector('.event-secondary');
       if (secAnchor) {
-        secAnchor.href = "/" + mainEvents[2].id; // <-- CHANGED
+        secAnchor.href = "/events/" + mainEvents[2].id; // <-- CHANGED
         const img = secAnchor.querySelector('img');
         if (img) {
           img.src = mainEvents[2].image;
