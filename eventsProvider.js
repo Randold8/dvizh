@@ -5,7 +5,6 @@ window.EventsProvider = (function() {
     let fetched = false;
     let fetchPromise = null;
   
-    // You can replace this with your database call in future
     function fetchEvents() {
       if (fetchPromise) return fetchPromise; // Already fetching
       fetchPromise = fetch('/events.json')
@@ -28,7 +27,6 @@ window.EventsProvider = (function() {
       return fetchEvents();
     }
   
-    // Optionally, allow consumers to register callbacks
     return {
       getEvents // returns a Promise<Array>
     };
