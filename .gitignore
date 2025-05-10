@@ -9,4 +9,7 @@ fucli.phar
 *.zip
 /local/logs/*
 urlrewrite.php
+.bash_history
+.cache/
+bitrixsetup.php
 
