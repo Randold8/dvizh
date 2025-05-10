@@ -1,0 +1,12 @@
+/.idea/
+/bitrix/*
+!bitrix/templates
+.htsecure
+fucli.phar
+*.log
+*.txt
+/upload
+*.zip
+/local/logs/*
+urlrewrite.php
+
