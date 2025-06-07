@@ -305,6 +305,15 @@
 
     /* Mobile Rules */
     @media screen and (max-width: 767px) {
+        html, body {
+            overflow-x: hidden;
+        }
+        
+        .shadow-divider,
+        #calendar-section {
+            width: 100%; /* fix 100vw usage */
+            overflow-x: hidden;
+        }
         .header-container {
             display: flex;
             flex-direction: column;
