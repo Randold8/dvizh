@@ -297,6 +297,9 @@
             font-size: 25px;
             transform: translateY(10%);
           }
+          .asticker-mobile {
+            display: none;
+          }
 
     }
 
@@ -445,6 +448,33 @@
             right: 0;
             font-size: 20px;
             padding: 0.5vh 0;
+          }
+          .achievements-container {
+          }
+          .achievements-display {
+            display: flex;
+            justify-content: start;
+          }
+          .special-heading{
+            transform: translateX(3%);
+          }
+          .stars {
+            width:30vw;
+            height: 30vw;
+            margin-inline: 5vw;
+          }
+          .asticker {
+            display: none;
+          }
+          .asticker-container {
+            position: relative;
+          }
+          .asticker-mobile {
+            position: absolute;
+            bottom:-10vh;
+            left:70vw;
+            width:30vw;
+            z-index: -3;
           }
     }
     .section-heading {
