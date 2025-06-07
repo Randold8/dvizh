@@ -473,9 +473,69 @@
             position: absolute;
             bottom:-10vh;
             left:70vw;
-            width:30vw;
+            width:35vw;
             z-index: -3;
           }
+          #calendar {
+            padding: 0.5rem;
+            margin: 0; /* Full width calendar */
+            box-shadow: none;
+            border-radius: 0;
+        }
+    
+        /* Make FullCalendar explicitly responsive */
+        .fc {
+            font-size: 0.8rem;
+        }
+    
+        .fc-header-toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .fc-toolbar-title {
+            font-size: 1.2rem;
+        }
+    
+        .fc-button {
+            padding: 4px 8px;
+            font-size: 0.75rem;
+        }
+    
+        .fc-daygrid-day-number {
+            font-size: 0.75rem;
+        }
+    
+        .fc-event {
+            font-size: 0.6rem;
+            padding: 0 3px;
+        }
+    
+        /* Prevent overflowing content */
+        .fc-view-harness {
+            overflow-x: auto; /* enable horizontal scroll if needed */
+            width: 100%;
+        }
+    
+        /* Reduce calendar height on mobile */
+        .fc-dayGridMonth-view .fc-daygrid-day-frame {
+            min-height: 60px;
+        }
+    
+        /* Make Event Text Ellipsis */
+        .fc-event-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        /* Improve touch targets */
+        .fc-button, .fc-event, .fc-daygrid-day-top {
+            touch-action: manipulation;
+        }
     }
     .section-heading {
         font-family: "Jura", sans-serif;

@@ -39,6 +39,8 @@ function parseEventDate(dateString) {
         const calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
           height: 'auto',
+          handleWindowResize: true,  // Ensures calendar adjusts on window resize
+          windowResizeDelay: 100, 
           headerToolbar: {
             left: 'prev,next today',
             center: 'title',
