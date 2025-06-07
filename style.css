@@ -274,6 +274,29 @@
             margin-right: 0;
             display: block;
           }
+          .achievements-section {
+            display:flex;
+            justify-content: center;
+          }
+          .achievements-container {
+            width:80vw;
+          }
+          .achievements-display {
+            margin-top:16vh;
+            display: flex;
+            justify-content:space-between;
+          }
+          .stars {
+            width:20vw;
+            height:20vw;
+          }
+          .asticker {
+            transform: translateY(-30%);
+          }
+          .achievements-text {
+            font-size: 25px;
+            transform: translateY(10%);
+          }
 
     }
 

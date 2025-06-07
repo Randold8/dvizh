@@ -1,0 +1,18 @@
+{
+    "totalUsers": 512,
+    "ratings": [
+      {
+        "userId": "user123",
+        "rating": 78
+      },
+      {
+        "userId": "user456",
+        "rating": 92
+      },
+      {
+        "userId": "user789",
+        "rating": 45
+      }
+    ]
+  }
+  

@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const scrollPairs = [
         { buttonId: "afishaBtn", sectionClass: "list-section" },
         { buttonId: "calendarBtn", sectionClass: "calendar-section" },
-        // { buttonId: "aboutBtn", sectionClass: "about-section" },
-        // { buttonId: "contactBtn", sectionClass: "contact-section" },
+        { buttonId: "achievementsBtn", sectionClass: "achievements-section" },
     ];
 
     console.log(`Scroll-links.js: Setting up ${scrollPairs.length} scroll links`);
