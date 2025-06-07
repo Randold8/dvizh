@@ -1,6 +1,7 @@
 {
     "id": "user123",
     "name": "Александр Петров",
+    "group":"22БИ-1",
     "email": "alex.petrov@example.com",
     "stars": 285,
     "registeredDate": "2023-03-15"

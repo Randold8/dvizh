@@ -1,0 +1,128 @@
+body {
+    font-family: 'Century Gothic', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+  }
+  
+  .profile-section {
+    display: flex;
+    justify-content: center;
+    padding: 4vw 2vw;
+  }
+  
+  .profile-container {
+    width: 90vw;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row; /* horizontal layout as requested */
+    padding: 30px;
+    box-sizing: border-box;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  
+  .profile-image-container {
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  
+  .profile-image-container img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+  }
+  
+  .profile-details-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .profile-info-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    user-select: none;
+  }
+  
+  .profile-info-field {
+    background-color: #efefef;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #555;
+    pointer-events: none;
+  }
+  
+  .user-achievements-summary {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .profile-action-buttons {
+    display: flex;
+    gap: 20px;
+  }
+  /* Custom widths for profile fields */
+.profile-info-field.half-width {
+    width: 40%;
+  }
+  
+  .profile-info-field.three-quarter-width {
+    width: 65%;
+  }
+  
+  .profile-info-field.full-width {
+    width: 90%;
+  }
+  
+  /* Buttons as links */
+  .profile-action-buttons .btn {
+    text-decoration: none; /* remove underline for links */
+    text-align: center;
+  }
+  
+  
+  .btn {
+    background-color: #1C00EF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-family: 'Jura', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn:hover {
+    background-color: #14009e;
+  }
+  
+  @media (max-width: 900px) {
+    .profile-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .profile-image-container img {
+      width: 200px;
+      height: 200px;
+    }
+    .profile-action-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
+  
