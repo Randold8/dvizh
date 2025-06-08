@@ -568,3 +568,13 @@
       .create-event-btn:hover {
         background: #14009e;
       }
+      footer {
+        background-color: #011368;
+        color: white;
+        padding: 20px 15px;
+        text-align: center;
+        font-family: 'Century Gothic', sans-serif;
+        line-height: 1.6;
+        font-size: 20px;
+    }
+
