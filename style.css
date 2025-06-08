@@ -301,6 +301,9 @@
           .asticker-mobile {
             display: none;
           }
+          footer {
+            font-size: 20px;
+          }
 
     }
 
@@ -546,6 +549,9 @@
         .fc-button, .fc-event, .fc-daygrid-day-top {
             touch-action: manipulation;
         }
+        footer {
+            margin-top:7vh;
+        }
     }
     .section-heading {
         font-family: "Jura", sans-serif;
@@ -575,6 +581,5 @@
         text-align: center;
         font-family: 'Century Gothic', sans-serif;
         line-height: 1.6;
-        font-size: 20px;
     }
 
