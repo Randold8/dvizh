@@ -1,0 +1,111 @@
+body {
+    font-family: 'Century Gothic', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+  }
+  
+  .rating-section {
+    padding: 4vw 2vw;
+  }
+  
+  .rating-container {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  
+  .page-heading {
+    font-family: 'Jura', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .rating-list {
+    width: 100%;
+  }
+  
+  .rating-header-row, .rating-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .rating-row:last-child {
+    border-bottom: none;
+  }
+  
+  .rating-row:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* Base Column styles */
+  .rating-col {
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .col-place { flex: 0 0 80px; }
+  .col-name {
+    flex: 2 1 0;
+    min-width: 0; /* Prevents long names from breaking flexbox */
+  }
+  .col-group { flex: 1 1 0; }
+  .col-program { flex: 2 1 0; }
+  
+  .rating-header-row .rating-col {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  /* Styling for the current user's row */
+  .rating-row.current-user {
+    background-color: #e8e7ff;
+    border-left: 4px solid #1C00EF;
+    font-weight: bold;
+  }
+  
+  .rating-row.current-user .col-place {
+    color: #1C00EF;
+  }
+  
+  /* --- NEW RESPONSIVE DESIGN FOR MOBILE (Horizontal Layout) --- */
+  @media (max-width: 900px) {
+    .rating-container {
+      padding: 15px;
+    }
+  
+    .rating-header-row, .rating-row {
+      padding: 10px 5px; /* Reduce padding for more space */
+    }
+  
+    /* Hide the "ОП" column on mobile */
+    .col-program {
+      display: none;
+    }
+  
+    .rating-col {
+      font-size: 0.9rem; /* Slightly smaller font on mobile */
+      padding: 0 5px;
+    }
+  
+    /* Adjust column widths for mobile */
+    .col-place { flex: 0 0 50px; text-align: center; }
+    .col-name {
+      flex: 1 1 auto; /* Let name take available space */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; /* Truncate long names with "..." */
+    }
+    .col-group { flex: 0 0 100px; text-align: right; }
+  }
+  

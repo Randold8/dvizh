@@ -1,0 +1,95 @@
+body {
+    font-family: 'Century Gothic', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+  }
+  
+  .creation-section {
+    padding: 4vw 2vw;
+  }
+  
+  .creation-container {
+    width: 90vw;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  
+  .page-heading {
+    font-family: 'Jura', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .creation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Reusing your standard input field style */
+  .input-field {
+    background-color: #efefef;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .description-box {
+    resize: vertical; /* Allow manual resize as a fallback */
+    min-height: 120px;
+    overflow-y: hidden; /* Hide scrollbar for auto-expand effect */
+  }
+  
+  .file-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .upload-label {
+    display: inline-block;
+    background-color: #efefef;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .upload-label:hover {
+    background-color: #ddd;
+  }
+  
+  #file-name-display {
+    font-size: 0.9rem;
+    color: #777;
+    font-style: italic;
+  }
+  
+  .btn-create {
+    background-color: #1C00EF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.25rem;
+    font-family: 'Jura', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 15px;
+  }
+  
+  .btn-create:hover {
+    background-color: #14009e;
+  }
+  

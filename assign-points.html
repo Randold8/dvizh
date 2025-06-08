@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hse.движ — Начисление баллов</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./assign-points.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Same header as other pages -->
+  <header>
+    <div class="header-container">
+      <div class="header-top">
+        <div class="logo-section">
+          <div class="header-logo">
+            <p class="logotext">hse.движ</p>
+          </div>
+          <div class="header-divider"></div>
+        </div>
+        <div class="login-section">
+          <a href="login.html" class="login-btn">Войти</a>
+        </div>
+      </div>
+      <div class="header-links">
+        <a id="afishaBtn" href="index.html" class="header-link">Афиша</a>
+        <a id="calendarBtn" href="index.html#calendar-section" class="header-link">Календарь</a>
+        <a id="achievementsBtn" href="index.html#achievements-section" class="header-link">Достижения</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Point Assignment Section -->
+  <section class="assignment-section">
+    <div class="assignment-container">
+      <h2 class="page-heading">Начисление баллов</h2>
+
+      <div class="assignment-list">
+        <!-- Header Row for Labels -->
+        <div class="assignment-header-row">
+          <span class="col-student-name">ФИО студента</span>
+          <span class="col-student-group">Академ. группа</span>
+          <span class="col-points">Кол-во баллов</span>
+          <span class="col-action"></span>
+        </div>
+
+        <!-- Sample Assignment Rows -->
+        <div class="assignment-row">
+          <span class="student-name" data-label="ФИО">Иванов Иван Иванович</span>
+          <span class="student-group" data-label="Группа">22БИ-1</span>
+          <input type="number" class="points-input" placeholder="0">
+          <button class="btn-submit">Начислить баллы</button>
+        </div>
+
+        <div class="assignment-row">
+          <span class="student-name" data-label="ФИО">Петрова Анна Сергеевна</span>
+          <span class="student-group" data-label="Группа">23ФПМИ-2</span>
+          <input type="number" class="points-input" placeholder="0">
+          <button class="btn-submit">Начислить баллы</button>
+        </div>
+
+        <div class="assignment-row">
+          <span class="student-name" data-label="ФИО">Сидоров Алексей Петрович</span>
+          <span class="student-group" data-label="Группа">21Э-3</span>
+          <input type="number" class="points-input" placeholder="0">
+          <button class="btn-submit">Начислить баллы</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

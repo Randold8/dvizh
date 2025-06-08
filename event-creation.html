@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hse.движ — Создание мероприятия</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./event-creation.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap" rel="stylesheet">
+  <!-- Flatpickr Date Picker CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+  <!-- Same header as other pages -->
+  <header>
+    <div class="header-container">
+      <div class="header-top">
+        <div class="logo-section">
+          <div class="header-logo">
+            <p class="logotext">hse.движ</p>
+          </div>
+          <div class="header-divider"></div>
+        </div>
+        <div class="login-section">
+          <a href="login.html" class="login-btn">Войти</a>
+        </div>
+      </div>
+      <div class="header-links">
+        <a id="afishaBtn" href="index.html" class="header-link">Афиша</a>
+        <a id="calendarBtn" href="index.html#calendar-section" class="header-link">Календарь</a>
+        <a id="achievementsBtn" href="index.html#achievements-section" class="header-link">Достижения</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Event Creation Section -->
+  <section class="creation-section">
+    <div class="creation-container">
+      <h2 class="page-heading">Создание мероприятия</h2>
+      <form class="creation-form">
+        <input type="text" class="input-field" placeholder="Введите название*" required>
+        <input type="text" id="event-date-picker" class="input-field" placeholder="Выберите дату*" required>
+        <input type="text" class="input-field" placeholder="Введите место проведения*" required>
+        <textarea class="input-field description-box" placeholder="Введите описание*" rows="4" required></textarea>
+
+        <!-- Custom styled file input -->
+        <div class="file-upload-container">
+          <label for="event-image-upload" class="upload-label">Загрузить изображение*</label>
+          <input type="file" id="event-image-upload" accept="image/*" hidden>
+          <span id="file-name-display">Файл не выбран</span>
+        </div>
+
+        <button type="submit" class="btn-create">Создать мероприятие</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Flatpickr Date Picker JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- Russian locale for Flatpickr -->
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+  <!-- Custom JS for this page -->
+  <script src="./event-creation.js"></script>
+</body>
+
+</html>

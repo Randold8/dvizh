@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hse.движ — Рейтинг</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./rating.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Same header as other pages -->
+  <header>
+    <div class="header-container">
+      <div class="header-top">
+        <div class="logo-section">
+          <div class="header-logo">
+            <p class="logotext">hse.движ</p>
+          </div>
+          <div class="header-divider"></div>
+        </div>
+        <div class="login-section">
+          <a href="login.html" class="login-btn">Войти</a>
+        </div>
+      </div>
+      <div class="header-links">
+        <a id="afishaBtn" href="index.html" class="header-link">Афиша</a>
+        <a id="calendarBtn" href="index.html#calendar-section" class="header-link">Календарь</a>
+        <a id="achievementsBtn" href="index.html#achievements-section" class="header-link">Достижения</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Rating Section -->
+  <section class="rating-section">
+    <div class="rating-container">
+      <h2 class="page-heading">Рейтинг</h2>
+
+      <div class="rating-list">
+        <!-- Header Row -->
+        <div class="rating-header-row">
+          <span class="rating-col col-place">Место</span>
+          <span class="rating-col col-name">ФИО студента</span>
+          <span class="rating-col col-group">Академ. группа</span>
+          <span class="rating-col col-program">ОП</span>
+        </div>
+
+        <!-- Sample Data Rows -->
+        <div class="rating-row">
+          <span class="rating-col col-place" data-label="Место">1</span>
+          <span class="rating-col col-name" data-label="ФИО студента">Иванов Иван Иванович</span>
+          <span class="rating-col col-group" data-label="Академ. группа">22БИ-1</span>
+          <span class="rating-col col-program" data-label="ОП">Прикладная математика и информатика</span>
+        </div>
+
+        <!-- Current User's Row -->
+        <div class="rating-row current-user">
+          <span class="rating-col col-place" data-label="Место">2</span>
+          <span class="rating-col col-name" data-label="ФИО студента">Петрова Анна Сергеевна</span>
+          <span class="rating-col col-group" data-label="Академ. группа">23ФПМИ-2</span>
+          <span class="rating-col col-program" data-label="ОП">Программная инженерия</span>
+        </div>
+
+        <div class="rating-row">
+          <span class="rating-col col-place" data-label="Место">3</span>
+          <span class="rating-col col-name" data-label="ФИО студента">Сидоров Алексей Петрович</span>
+          <span class="rating-col col-group" data-label="Академ. группа">21Э-3</span>
+          <span class="rating-col col-program" data-label="ОП">Экономика</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
