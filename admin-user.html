@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hse.движ — Профиль администратора</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./user.css"> <!-- Reusing user styles -->
+  <link rel="stylesheet" href="./admin-user.css"> <!-- Admin-specific styles -->
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Same header -->
+  <header>
+    <div class="header-container">
+      <div class="header-top">
+        <div class="logo-section">
+          <div class="header-logo">
+            <p class="logotext">hse.движ</p>
+          </div>
+          <div class="header-divider"></div>
+        </div>
+        <div class="login-section">
+          <a href="login.html" class="login-btn">Войти</a>
+        </div>
+      </div>
+      <div class="header-links">
+        <a id="afishaBtn" href="index.html" class="header-link">Афиша</a>
+        <a id="calendarBtn" href="index.html#calendar-section" class="header-link">Календарь</a>
+        <a id="achievementsBtn" href="index.html#achievements-section" class="header-link">Достижения</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Profile Section -->
+  <section class="profile-section">
+    <div class="profile-container admin-container">
+      <!-- Top part: Image and Info (same as user.html) -->
+      <div class="profile-main-content">
+        <div class="profile-image-container">
+          <img id="profile-image" src="/img/default-avatar.png">
+          <input type="file" id="upload-avatar" hidden accept="image/*">
+        </div>
+        <div class="profile-details-container">
+          <div class="profile-info-container">
+            <input type="text" id="user-name" class="profile-info-field half-width" readonly>
+            <input type="email" id="user-email" class="profile-info-field three-quarter-width" readonly>
+            <input type="text" id="user-group" class="profile-info-field full-width" readonly>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom part: Past Events for Admin -->
+      <div class="admin-events-section">
+        <h2 class="section-subheading">Прошедшие мероприятия</h2>
+        <div class="admin-events-list">
+            <!-- Sample list items -->
+            <a href="assign-points.html" class="admin-event-row">
+              <span class="event-name-field">Лекция по квантовым вычислениям</span>
+              <span class="btn">Начислить баллы</span>
+            </a>
+            <a href="assign-points.html" class="admin-event-row">
+              <span class="event-name-field">Хакатон "HSE DEVS"</span>
+              <span class="btn">Начислить баллы</span>
+            </a>
+            <a href="assign-points.html" class="admin-event-row">
+              <span class="event-name-field">Мастер-класс по дизайну интерфейсов</span>
+              <span class="btn">Начислить баллы</span>
+            </a>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./eventsProvider.js"></script>
+  <script src="./user.js"></script> <!-- Reusing user.js for populating info -->
+</body>
+</html>
