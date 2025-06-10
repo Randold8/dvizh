@@ -1,14 +1,18 @@
 // Utility: Convert "dd.mm" to YYYY-MM-DD string for FullCalendar
 function parseEventDate(dateString) {
-    const [day, month] = dateString.split('.').map(Number);
-    const now = new Date();
-    const year = now.getFullYear();
-    let eventDate = new Date(year, month - 1, day);
-    const today = new Date(now.setHours(0,0,0,0));
-    if (eventDate < today) eventDate = new Date(year + 1, month - 1, day);
-    return eventDate.toISOString().split('T')[0];
-  }
-  
+  const [day, month] = dateString.split('.').map(Number);
+  const now = new Date();
+  const year = now.getFullYear();
+  let eventDate = new Date(year, month - 1, day);
+  const today = new Date(now.setHours(0, 0, 0, 0));
+  if (eventDate < today) eventDate = new Date(year + 1, month - 1, day);
+
+  // Use local time, not UTC
+  const y = eventDate.getFullYear();
+  const m = String(eventDate.getMonth() + 1).padStart(2, '0');
+  const d = String(eventDate.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
   // Map to FullCalendar events: just the type (in Russian) and colored background
   const eventTypeMap = {
     lecture:    {name: 'Лекция',      color: '#1C00EF'},
