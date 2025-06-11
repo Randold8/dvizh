@@ -1,0 +1,156 @@
+body {
+    font-family: 'Century Gothic', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Centered content below header */
+.login-section-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.login-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+.login-header {
+    font-family: 'Jura', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 35px;
+    letter-spacing: 0.25em; /* spacing like your logo */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-field {
+    background-color: #efefef;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.input-field::placeholder {
+    color: #777;
+}
+
+.login-btn-form {
+    background-color: #1C00EF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.25rem;
+    font-family: 'Jura', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 15px;
+}
+
+.login-btn-form:hover {
+    background-color: #14009e;
+}
+
+.register-link-btn {
+    background: none;
+    border: none;
+    color: #1C00EF;
+    cursor: pointer;
+    font-family: 'Jura', sans-serif;
+    font-size: 1.15rem;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+    transition: color 0.2s ease;
+}
+
+.register-link-btn:hover {
+    color: #14009e;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 767px) {
+    .login-container {
+        padding: 20px;
+        width: 90vw;
+        box-sizing: border-box;
+    }
+
+    .login-header {
+        font-size: 2rem;
+    }
+
+    .login-btn-form, .input-field, .register-link-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+.login-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+.login-btn-form {
+    background-color: #1C00EF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 1.25rem;
+    font-family: 'Jura', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn-form:hover {
+    background-color: #14009e;
+}
+
+.register-link-btn {
+    background: none;
+    border: none;
+    color: #1C00EF;
+    cursor: pointer;
+    font-family: 'Jura', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.register-link-btn:hover {
+    color: #14009e;
+}
+
+/* Responsive Adjustment */
+@media (max-width: 767px) {
+    .login-buttons-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .login-btn-form, .register-link-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+  

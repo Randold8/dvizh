@@ -1,0 +1,115 @@
+body {
+    font-family: 'Century Gothic', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+  }
+  
+  .assignment-section {
+    padding: 4vw 2vw;
+  }
+  
+  .assignment-container {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  
+  .page-heading {
+    font-family: 'Jura', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .assignment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .assignment-header-row {
+    display: flex;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #777;
+    text-transform: uppercase;
+    padding: 0 10px 5px 10px;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .assignment-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .assignment-row:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Flex distribution for columns */
+  .student-name, .col-student-name { flex: 3; }
+  .student-group, .col-student-group { flex: 2; }
+  .points-input, .col-points { flex: 1; }
+  .btn-submit, .col-action { flex: 1.5; text-align: center; }
+  
+  
+  .points-input {
+    background-color: #efefef;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+  }
+  
+  .btn-submit {
+    background-color: #1C00EF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-family: 'Jura', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+  }
+  
+  .btn-submit:hover {
+    background-color: #14009e;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .assignment-header-row {
+      display: none; /* Hide headers on mobile */
+    }
+  
+    .assignment-row {
+      flex-direction: column;
+      align-items: stretch; /* Make items fill width */
+      gap: 10px;
+      padding: 15px;
+    }
+  
+    .student-name::before, .student-group::before {
+      content: attr(data-label) ': ';
+      font-weight: bold;
+    }
+  
+    .student-name, .student-group, .points-input, .btn-submit {
+      flex-basis: auto; /* Reset flex basis */
+    }
+  }
+  

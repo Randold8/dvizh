@@ -1,0 +1,585 @@
+/* Universal Rules */
+body {
+    margin: 0;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    overflow-x: hidden;
+}
+
+.logotext {
+    font-family: 'Jura', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    user-select: none;
+}
+
+.header-link {
+    color: black;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.header-link:hover {
+    color: #1C00EF;
+}
+
+.login-btn {
+    color: white;
+    background: #1C00EF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background: #14009e;
+}
+
+.event {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.event img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.create-event-btn {
+    background: #1C00EF;
+    color: #fff;
+    border: none;
+    border-radius: 0; /* No rounding */
+    font-family: 'Jura', 'Century Gothic', sans-serif;
+    font-size: 1.5rem;
+    padding: 1.2em 0;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s;
+    box-shadow: 0 2px 16px 0 rgba(30,30,100,0.07);
+    margin-top: 32px;
+}
+
+/* Desktop Rules (default) */
+@media screen and (min-width: 768px) {
+    .header-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-height: 20vh;
+    }
+
+    .header-top {
+        display: flex;
+        align-items: center;
+        max-width: 30vw;
+    }
+
+    .logo-section {
+        display: flex;
+        align-items: center;
+    }
+
+    .logotext {
+        margin-top: 7vh;
+        margin-bottom: 4vh;
+        margin-inline: 3vw;
+        font-size: clamp(22px, 6vw, 60px);
+    }
+
+    .header-divider {
+        position: relative;
+        left: -1vw;
+        width: 3px;
+        height: 15vh;
+        margin-top: 4vh;
+        background-color: black;
+    }
+
+    .header-links {
+        position: relative;
+        left: 10vw;
+        display: flex;
+        align-items: center;
+        gap: 2vw;
+        margin-top: 3.5vh;
+    }
+
+    .header-link {
+        font-size: clamp(18px, 1.5vw, 30px);
+        padding: 0 0.5vw;
+        margin-left: 2.5vw;
+    }
+
+    .login-btn {
+        position:absolute;
+        right:5vw;
+        top:7.5vh;
+        font-size: clamp(18px, 1.5vw, 30px);
+        padding: 0.6em 1.5em;
+    }
+
+    .login-section {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Events Section - Desktop */
+    .events-section {
+        margin-top:2vh;
+        padding: 0;
+    }
+
+    .events-container {
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 40% 40% 20%;
+        height: 78vh;
+        gap: 0;
+    }
+
+    .event-main {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+    }
+
+    .event-secondary-container {
+        grid-column: 2;
+        display: contents;
+    }
+
+    .event-secondary-container:nth-of-type(2) {
+        grid-row: 1;
+    }
+
+    .event-secondary-container:nth-of-type(3) {
+        grid-row: 2;
+    }
+
+    .event-secondary {
+        grid-column: 2;
+    }
+
+    .event-secondary-container:nth-of-type(2) .event-secondary {
+        grid-row: 1;
+    }
+
+    .event-secondary-container:nth-of-type(3) .event-secondary {
+        grid-row: 2;
+    }
+
+    .arrow-link {
+        display: none; /* Hide arrows on desktop */
+    }
+
+    .date-display {
+        grid-column: 2;
+        grid-row: 3;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start; /* Allow natural alignment */
+        justify-content: center;
+        padding: 10px 20px;
+    }
+
+    .date-container {
+        display: flex;
+        align-items: baseline;
+        gap: 15px;
+        margin-right: 20px;
+        margin-top:-30px;
+    }
+
+    .day-number {
+        font-size: 150px;
+        font-family: 'Jura', sans-serif;
+        line-height: 1;
+        color: white;
+    }
+
+    .date-divider hr {
+        width: 80px;
+        border: none;
+        height: 2px;
+        background-color: white;
+        margin: 0;
+        display: inline-block;
+        vertical-align: baseline;
+    }
+
+    .month-number {
+        font-size: 100px;
+        font-family: 'Jura', sans-serif;
+        color: white;
+    }
+
+    .events-link {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: 'Jura', sans-serif;
+        position: relative;
+        padding-bottom: 25px; /* Make room for the arrow below */
+        margin-top: auto; /* Push to align with baseline of date */
+        transition: color 0.2s;
+        margin-left:4vw;
+    }
+
+    .events-link::after {
+        content: "→";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) scaleX(3);
+        bottom: 0;
+        font-size: 30px;
+    }
+
+
+    .events-link:hover::after {
+        transform: translateX(-10%) scaleX(3.1); /* Small animation on hover */
+        transition: transform 0.2s ease;
+    }
+
+    /* Standalone shadow divider that can be reused */
+    .shadow-divider {
+        width: 100vw;
+        height: 30vh;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.2) 60%, transparent 100%);
+        margin: 0;
+        padding: 0;
+        z-index:-2;
+        position: relative;
+        top:-20vh;
+    }
+    .section-heading {
+        transform: translateX(-5%);
+    }
+    .calendar-sticker {
+        width:20vw;
+        position: absolute;
+        right:4vw;
+        transform: translateY(-70%);
+        z-index: -2;
+    }
+    .calendar-sticker2 {
+        display:none;
+    }
+    .create-event-btn {
+        width: 25vw;
+        position: relative;
+        right: -10vw;
+        margin-left: auto;
+        margin-right: 0;
+        display: block;
+    }
+    .achievements-section {
+        display:flex;
+        justify-content: center;
+    }
+    .achievements-container {
+        width:80vw;
+    }
+    .achievements-display {
+        margin-top:16vh;
+        display: flex;
+        justify-content:space-between;
+    }
+    .stars {
+        width:20vw;
+        height:20vw;
+    }
+    .asticker {
+        transform: translateY(-30%);
+    }
+    .achievements-text {
+        font-size: 25px;
+        transform: translateY(10%);
+    }
+    .asticker-mobile {
+        display: none;
+    }
+    footer {
+        font-size: 20px;
+    }
+
+}
+
+/* Mobile Rules */
+@media screen and (max-width: 767px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .shadow-divider,
+    #calendar-section {
+        width: 100%; /* fix 100vw usage */
+        overflow-x: hidden;
+    }
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .logo-section {
+        display: flex;
+        align-items: center;
+    }
+
+    .logotext {
+        margin: 2vh 3vw;
+        font-size: 24px;
+    }
+
+    .header-divider {
+        width: 2px;
+        height: 8vh;
+        background-color: black;
+        margin-right: 10px;
+    }
+
+    .login-section {
+        margin-right: 5vw;
+    }
+
+    .login-btn {
+        font-size: 16px;
+        padding: 0.5em 1.2em;
+    }
+
+    .header-links {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    .header-link {
+        flex: 1;
+        font-size: 16px;
+        padding: 10px 0;
+        border: none;
+        border-right: 1px solid black;
+        text-align: center;
+        margin: 0;
+    }
+
+    .header-link:first-child {
+        border-left: none;
+    }
+
+    .header-link:last-child {
+        border-right: none;
+    }
+
+    /* Events Section - Mobile */
+    .events-section {
+        padding: 0;
+    }
+
+    .events-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .event-main {
+        height: 60vh;
+    }
+
+    .event-secondary-container {
+        display: flex;
+        height: 30vh;
+        width: 100%;
+    }
+    .event-secondary-container .event {
+        pointer-events: none;
+    }
+
+    .event-main {
+        pointer-events: none;
+    }
+
+    .event-secondary {
+        width: 80%;
+        height: 100%;
+    }
+
+    .arrow-link {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f5f5f5;
+        text-decoration: none;
+    }
+
+    .arrow {
+        font-size: 24px;
+        transform: scaleX(2);
+        color: black;
+    }
+
+    .reverse {
+        flex-direction: row-reverse;
+    }
+
+    .date-display {
+        display: none;
+    }
+
+    /* Remove hover effect on mobile */
+    .event:hover img {
+        transform: none;
+    }
+    .calendar-sticker2 {
+        width:40vw;
+        position: absolute;
+        right:5vw;
+        z-index: -2;
+    }
+    .calendar-sticker {
+        display:none;
+    }
+    .create-event-btn {
+        width: 50vw;
+        margin-top:14vh;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        right: 0;
+        font-size: 20px;
+        padding: 0.5vh 0;
+    }
+    .achievements-container {
+    }
+    .achievements-display {
+        display: flex;
+        justify-content: start;
+    }
+    .special-heading{
+        transform: translateX(3%);
+    }
+    .stars {
+        width:30vw;
+        height: 30vw;
+        margin-inline: 5vw;
+    }
+    .asticker {
+        display: none;
+    }
+    .asticker-container {
+        position: relative;
+    }
+    .asticker-mobile {
+        position: absolute;
+        bottom:-10vh;
+        left:70vw;
+        width:35vw;
+        z-index: -3;
+    }
+    #calendar {
+        padding: 0.5rem;
+        margin: 0; /* Full width calendar */
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    /* Make FullCalendar explicitly responsive */
+    .fc {
+        font-size: 0.8rem;
+    }
+
+    .fc-header-toolbar {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fc-toolbar-title {
+        font-size: 1.2rem;
+    }
+
+    .fc-button {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+
+    .fc-daygrid-day-number {
+        font-size: 0.75rem;
+    }
+
+    .fc-event {
+        font-size: 0.6rem;
+        padding: 0 3px;
+    }
+
+    /* Prevent overflowing content */
+    .fc-view-harness {
+        overflow-x: auto; /* enable horizontal scroll if needed */
+        width: 100%;
+    }
+
+    /* Reduce calendar height on mobile */
+    .fc-dayGridMonth-view .fc-daygrid-day-frame {
+        min-height: 60px;
+    }
+
+    /* Make Event Text Ellipsis */
+    .fc-event-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* Improve touch targets */
+    .fc-button, .fc-event, .fc-daygrid-day-top {
+        touch-action: manipulation;
+    }
+    footer {
+        margin-top:7vh;
+    }
+}
+.section-heading {
+    font-family: "Jura", sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+#calendar-section {
+    width: 100vw;
+    padding: 2vw 0;
+}
+#calendar {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px 0 rgba(0,0,0,0.10);
+    padding: 1vw;
+}
+
+.create-event-btn:hover {
+    background: #14009e;
+}
+footer {
+    background-color: #011368;
+    color: white;
+    padding: 20px 15px;
+    text-align: center;
+    font-family: 'Century Gothic', sans-serif;
+    line-height: 1.6;
+}
+

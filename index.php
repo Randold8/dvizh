@@ -1,42 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>hse.движ</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./style-eventlist.css" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js "></script>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap"
-            rel="stylesheet"
-    />
-</head>
-<body>
-<header>
-    <div class="header-container">
-        <div class="header-top">
-            <div class="logo-section">
-                <div class="header-logo">
-                    <p class="logotext">hse.движ</p>
-                </div>
-                <div class="header-divider"></div>
-            </div>
-            <div class="login-section">
-                <button class="login-btn">Войти</button>
-            </div>
-        </div>
-        <div class="header-links">
-            <a href="" id="afishaBtn" class="header-link">Афиша</a>
-            <a href="" id="calendarBtn" class="header-link">Календарь</a>
-            <a href="" id="achievementsBtn" class="header-link">Достижения</a>
-        </div>
-    </div>
-</header>
+<?
+global $USER;
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("HSE Движ");
+?>
+
+
 
 <section class="events-section">
     <div class="events-container">
@@ -68,14 +36,14 @@
                 <div class="date-divider"><hr /></div>
                 <div id="month-number" class="month-number"></div>
             </div>
-            <a href="#" class="events-link">все события</a>
+            <a href="" id="afishaBtn2" class="events-link">все события</a>
         </div>
 
         <div class="shadow-divider"></div>
     </div>
 </section>
 
-<section class="list-section">
+<section class="list-section" id="afisha">
     <div class="list-container">
         <h2 class="section-heading">Афиша</h2>
 
@@ -106,18 +74,76 @@
         <h2 class="section-heading">Календарь событий</h2>
         <img src="/img/calendarsticker.png" class="calendar-sticker"></img>
         <div id="calendar"></div>
-        <button class="create-event-btn">Создать своё мероприятие</button>
-        <img src="/img/calendarsticker.png" class="calendar-sticker2"></img>
+        <?php if ($USER->IsAdmin()): ?>
+            <a href="/personal/add-event/" style="text-decoration: none" class="create-event-btn">Создать своё мероприятие</a>
+        <?php endif; ?>
+            <img src="/img/calendarsticker.png" class="calendar-sticker2"></img>
+
 
     </div>
 </section>
+<?php
+use Bitrix\Main\Loader;
+use Bitrix\Highloadblock\HighloadBlockTable;
 
-<script src="/eventsProvider.js"></script>
-<script src="/mainevents.js"></script>
-<script src="/date.js"></script>
-<script src="/filter.js"></script>
-<script src="/eventlist.js"></script>
-<script src="/calendar.js"></script>
-<script src="/scroll-links.js"></script>
-</body>
-</html>
+global $USER;
+$isAuth = $USER->IsAuthorized();
+
+$stars = 0;
+$rank = 0;
+$total = 0;
+
+if ($isAuth) {
+    Loader::includeModule("highloadblock");
+
+    $hlblock = HighloadBlockTable::getById(3)->fetch();
+    $entity = HighloadBlockTable::compileEntity($hlblock);
+    $entityClass = $entity->getDataClass();
+
+    // Получаем все записи рейтинга
+    $allRatings = $entityClass::getList([
+        'select' => ['ID', 'UF_USER_ID', 'UF_STARS'],
+        'order'  => ['UF_STARS' => 'DESC']
+    ])->fetchAll();
+
+    $total = count($allRatings);
+    foreach ($allRatings as $i => $row) {
+        if ((int)$row['UF_USER_ID'] === (int)$USER->GetID()) {
+            $stars = (int)$row['UF_STARS'];
+            $rank = $i + 1;
+            break;
+        }
+    }
+}
+?>
+
+<section class="achievements-section" id="achievements">
+    <div class="achievements-container">
+        <h2 class="section-heading special-heading">Достижения</h2>
+        <div class="achievements-display">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/img/staricon.png" class="stars">
+            <?php if ($isAuth): ?>
+                <p class="achievements-text">
+                    У вас <?= $stars ?> звёзд.<br><br>
+                    Ваш рейтинг: <?= $rank ?> из <?= $total ?>.<br><br>
+                    <u>Запишитесь на ближайшие<br>мероприятия чтобы получить<br>больше звёзд!</u>
+                </p>
+            <?php else: ?>
+                <p class="achievements-text">
+                    Чтобы видеть ваш рейтинг<br>и звёзды, <a href="/auth/">войдите в личный кабинет</a>.<br><br>
+                    <u>Запишитесь на ближайшие<br>мероприятия чтобы получить<br>больше звёзд!</u>
+                </p>
+            <?php endif; ?>
+            <img class="asticker" src="<?= SITE_TEMPLATE_PATH ?>/img/asticker.png">
+        </div>
+        <div class="asticker-container">
+            <img class="asticker-mobile" src="<?= SITE_TEMPLATE_PATH ?>/img/asticker.png">
+        </div>
+    </div>
+</section>
+
+
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+?>
+

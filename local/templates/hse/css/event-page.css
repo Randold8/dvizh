@@ -1,0 +1,113 @@
+body {
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.event-detail-section {
+    padding: 3vw;
+}
+
+.event-detail-container {
+    max-width: 90vw;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.event-detail-container img {
+    float: left;
+    min-width: 300px;
+    max-width: 40vw;
+    height: auto;
+    margin: 0 20px 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.event-detail-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.event-date-container {
+    font-family: "Jura", sans-serif;
+    color: #1C00EF;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-location {
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
+    color: rgba(0,0,0,0.7);
+}
+
+.event-info p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.event-info p:first-child {
+    font-weight: bold; /* first paragraph bold */
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments for mobile compatibility */
+@media (max-width: 767px) {
+    .event-detail-container img {
+        float: none;
+        width: 100%;
+        margin: 0 auto 15px;
+        display: block;
+    }
+}
+/* Buttons styling outside (below) main container */
+.event-action-buttons {
+    max-width: 90vw;
+    margin: 20px auto 40px auto; /* Place just below main container, centered horizontally */
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background: #1C00EF;
+    color: #ffffff;
+    font-family: 'Jura', sans-serif;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    padding: 10px 25px;
+    transition: background 0.2s;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #14009e;
+}
+
+.btn-attended {
+    align-self: flex-start;
+}
+
+.btn-register {
+    align-self: flex-end;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .event-action-buttons {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

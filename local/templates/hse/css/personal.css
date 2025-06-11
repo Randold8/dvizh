@@ -1,0 +1,32 @@
+.personal-wrapper {
+    max-width: 800px;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+}
+.personal-card {
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.personal-photo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #0000ff;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+.personal-info .item {
+    margin-bottom: 10px;
+}
+.personal-actions .btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 20px;
+    background: #0000ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}

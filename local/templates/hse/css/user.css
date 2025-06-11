@@ -1,0 +1,268 @@
+body {
+    font-family: 'Century Gothic', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+  }
+  
+  .profile-section {
+    display: flex;
+    justify-content: center;
+    padding: 4vw 2vw;
+  }
+  
+  .profile-container {
+    width: 90vw;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row; /* horizontal layout as requested */
+    padding: 30px;
+    box-sizing: border-box;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  
+  .profile-image-container {
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  
+  .profile-image-container img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .profile-details-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .profile-info-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    user-select: none;
+  }
+  
+  .profile-info-field {
+    background-color: #efefef;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #555;
+    pointer-events: none;
+  }
+  
+  .user-achievements-summary {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .profile-action-buttons {
+    display: flex;
+    gap: 20px;
+  }
+  /* Custom widths for profile fields */
+.profile-info-field.half-width {
+    width: 40%;
+  }
+  
+  .profile-info-field.three-quarter-width {
+    width: 65%;
+  }
+  
+  .profile-info-field.full-width {
+    width: 90%;
+  }
+  
+  /* Buttons as links */
+  .profile-action-buttons .btn {
+    text-decoration: none; /* remove underline for links */
+    text-align: center;
+  }
+  
+  
+  .btn {
+    background-color: #1C00EF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-family: 'Jura', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn:hover {
+    background-color: #14009e;
+  }
+  
+  @media (max-width: 900px) {
+    .profile-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .profile-image-container img {
+      width: 200px;
+      height: 200px;
+    }
+    .profile-action-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+    .profile-action-buttons a{
+      width: auto!important;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
+
+/* ==========================================================================
+   Admin User Page Styles (admin-user.css)
+   ========================================================================== */
+
+/* ----------------------------------
+   1. Main Container & Layout
+   ---------------------------------- */
+
+.profile-container.admin-container {
+  flex-direction: column; /* Stack profile info and event list vertically */
+  align-items: stretch; /* Ensure children fill the container width */
+}
+
+.profile-main-content {
+  display: flex;
+  gap: 30px;
+}
+
+/* ----------------------------------
+   2. Admin Events Section
+      - The bottom part of the page with the list of events.
+   ---------------------------------- */
+
+.admin-events-section {
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+
+.section-subheading {
+  font-family: 'Jura', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* ----------------------------------
+   3. Event List & Rows (Desktop First)
+   ---------------------------------- */
+
+.admin-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Each entire row is a clickable link */
+.admin-event-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Prevent link text from turning default blue */
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.admin-event-row:hover {
+  background-color: #f9f9f9; /* Subtle hover for the entire row */
+}
+
+/* The gray field for the event name */
+.event-name-field {
+  flex: 1; /* Allow it to take up all available space */
+  background-color: #efefef;
+  padding: 12px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* The blue button (styled span) */
+.admin-event-row .btn {
+  white-space: nowrap; /* Prevent button text from breaking into two lines */
+  background-color: #1C00EF;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-family: 'Jura', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-event-row:hover .btn {
+  background-color: #14009e;
+}
+
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* ----------------------------------
+   Tablet & Smaller Desktops
+   ---------------------------------- */
+@media (max-width: 900px) {
+  .profile-main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ----------------------------------
+   Mobile Devices (< 767px)
+   - On mobile, we hide the button and make the name field the link.
+   ---------------------------------- */
+@media (max-width: 767px) {
+  /* Remove padding from the row link itself */
+  .admin-event-row {
+    padding: 0;
+  }
+
+  /* 1. Hide the blue button completely */
+  .admin-event-row .btn {
+    display: none;
+  }
+
+  /* 2. Style the name field as the primary clickable element */
+  .event-name-field {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  /* 3. Redefine the hover/tap effect for the name field */
+  .admin-event-row:hover {
+    background-color: transparent; /* Disable the overall row hover effect */
+  }
+
+  .admin-event-row:hover .event-name-field {
+    background-color: #e8e7ff; /* Highlight with light blue on interaction */
+    color: #1C00EF; /* Make text dark blue */
+  }
+}
+
+  

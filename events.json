@@ -1,75 +1,29 @@
 [
     {
-      "id": 1,
-      "title": "Инклюзивная тактильная выставка ”Прикоснись к истории Победы”",
-      "date": "15.05",
-      "image": "/img/event1.png",
-      "time": "18:00",
-      "location": "Аудитория 505",
-      "type": "lecture"
+        "id": 34,
+        "title": "Что за бизнес",
+        "date": "20.06",
+        "image": "\/upload\/iblock\/c03\/3mqrvhdxlnaisecv8yhe5p134vv15t28.png",
+        "time": "10:00",
+        "location": "Главный холл",
+        "type": "lecture"
     },
     {
-      "id": 2,
-      "title": "Выставка народного творчества “К истокам РУССКОЙ культуры”",
-      "date": "20.05",
-      "image": "/img/event2.png",
-      "time": "10:00",
-      "location": "Главный холл",
-      "type": "exhibition"
+        "id": 33,
+        "title": "Выставка народного творчества “К истокам РУССКОЙ культуры”",
+        "date": "20.06",
+        "image": "\/upload\/iblock\/73b\/r6itgu74i352eboyroacjb9gbciqgquo.png",
+        "time": "10:00",
+        "location": "Главный холл",
+        "type": "conference"
     },
     {
-      "id": 3,
-      "title": "расширенное заседание коллегии Федеральной антимонопольной службы, посвященное 35-летию со дня создания ведомства",
-      "date": "25.06",
-      "image": "/img/event3.png",
-      "time": "09:30",
-      "location": "Конференц-зал 2",
-      "type": "conference"
-    },
-    {
-      "id": 4,
-      "title": "Квиз по истории России",
-      "date": "03.07",
-      "image": "/img/event1.png",
-      "time": "16:00",
-      "location": "Аудитория 301",
-      "type": "quiz"
-    },
-    {
-      "id": 5,
-      "title": "Дебаты на тему искусственного интеллекта",
-      "date": "10.08",
-      "image": "/img/event2.png",
-      "time": "15:30",
-      "location": "Аудитория 405",
-      "type": "other"
-    },
-    {
-      "id": 6,
-      "title": "Мастер-класс по программированию",
-      "date": "15.09",
-      "image": "/img/event3.png",
-      "time": "14:00",
-      "location": "Компьютерный класс 3",
-      "type": "lecture"
-    },
-    {
-      "id": 7,
-      "title": "Художественная выставка 'Цифровая эра'",
-      "date": "18.10",
-      "image": "/img/event1.png",
-      "time": "12:00",
-      "location": "Галерея HSE",
-      "type": "exhibition"
-    },
-    {
-      "id": 8,
-      "title": "Конференция по устойчивому развитию",
-      "date": "22.11",
-      "image": "/img/event2.png",
-      "time": "10:00",
-      "location": "Большой зал",
-      "type": "conference"
+        "id": 36,
+        "title": "test",
+        "date": "13.06",
+        "image": "\/upload\/events\/671\/4m16w5122zaat4hm1j9ozzkxgul1k4id.png",
+        "time": "10:22",
+        "location": "test",
+        "type": "quiz"
     }
-  ]
-  
+]
